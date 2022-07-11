@@ -6,6 +6,8 @@ class SignUp extends React.Component {
     this.updateEmailField = this.updateEmailField.bind(this);
     this.updateNameField = this.updateNameField.bind(this);
     this.updateLastnameField = this.updateLastnameField.bind(this);
+    this.updatePasswordField = this.updatePasswordField.bind(this);
+    this.updatePasswordbisField = this.updatePasswordbisField.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
       email: "valentin.morette@gmail.com",
@@ -28,6 +30,14 @@ class SignUp extends React.Component {
     this.setState({ lastname: event.target.value });
   }
 
+  updatePasswordField(event) {
+    this.setState({ password: event.target.value });
+  }
+
+  updatePasswordbisField(event) {
+    this.setState({ passwordbis: event.target.value });
+  }
+
   handleSubmit(event) {
     event.preventDefault();
     console.log(this.state);
@@ -39,10 +49,20 @@ class SignUp extends React.Component {
         <h1>{JSON.stringify(this.state, 1, 1)}</h1>
         <input type="email" name="email" onChange={this.updateEmailField} />
         <p>
-          Password : <input type="password" name="password" />
+          Password :{" "}
+          <input
+            type="password"
+            name="password"
+            onChange={this.updatePasswordField}
+          />
         </p>
         <p>
-          Password bis : <input type="password" name="passwordbis" />
+          Password bis :{" "}
+          <input
+            type="password"
+            name="passwordbis"
+            onChange={this.updatePasswordbisField}
+          />
         </p>
         <p>
           Name :{" "}
